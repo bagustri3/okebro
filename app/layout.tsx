@@ -1,14 +1,13 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pacifico } from "next/font/google";
 import "./globals.css";
 
 const pacifico = Pacifico({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-pacifico',
-})
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-pacifico",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,8 +20,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GAPLE OKE BRO",
-  description: "Created by SI-TECHNO",
+  title: {
+    default: "GAPLE OKE BRO",
+    template: "%s | GAPLE OKE BRO",
+  },
+  description:
+    "Aplikasi pencatatan dan statistik permainan Gaple. Dibuat oleh SI-TECHNO.",
+  applicationName: "GAPLE OKE BRO",
+  authors: [{ name: "SI-TECHNO" }],
+  creator: "SI-TECHNO",
+  publisher: "SI-TECHNO",
+
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+
+  openGraph: {
+    title: "GAPLE OKE BRO",
+    description:
+      "Aplikasi pencatatan dan statistik permainan Gaple. Dibuat oleh SI-TECHNO.",
+    type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "GAPLE OKE BRO Logo",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary",
+    title: "GAPLE OKE BRO",
+    description:
+      "Aplikasi pencatatan dan statistik permainan Gaple. Dibuat oleh SI-TECHNO.",
+    images: ["/logo.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
