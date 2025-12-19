@@ -43,8 +43,8 @@ interface History {
   match_id: number;
   player_name: string;
   action: string;
-  previous_count?: string;
-  new_count?: string;
+  previous_count: string | null;
+  new_count: string | null;
   created_at: string;
 }
 

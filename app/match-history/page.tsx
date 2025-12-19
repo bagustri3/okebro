@@ -21,7 +21,7 @@ interface MatchPlayer {
 interface HistoryEntry {
   player_name: string;
   action: string;
-  previous_count?: string | null;
+  previous_count: string | null;
   new_count?: string;
   created_at: string;
 }
