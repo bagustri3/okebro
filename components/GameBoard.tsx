@@ -2,6 +2,7 @@
 
 import { MatchPlayer, Player } from "@/lib/supabase";
 import Controls from "./Controls";
+import { useEffect, useState } from "react";
 
 interface GameBoardProps {
   matchPlayers: (MatchPlayer & { player: Player })[];
@@ -22,6 +23,15 @@ export default function GameBoard({
   onUndo,
 }: GameBoardProps) {
   const countSequence = ["", "l", "L", "F", "P", "R", "RI", "RT"];
+  const [scrollLock, setScrollLock] = useState(false);
+
+  useEffect(() => {
+    document.getElementById("score")?.scrollIntoView({ behavior: "smooth" });
+    document.body.style.overflow = scrollLock ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [scrollLock]);
 
   const handleResetAllPlayers = () => {
     matchPlayers.forEach((mp) => {
@@ -35,10 +45,17 @@ export default function GameBoard({
         <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl">
           <i className="ri-dashboard-line text-white text-xl"></i>
         </div>
-        Game Board
+        <div className="flex w-full justify-between">
+          <span>Game Board</span>
+          <span>
+            <button onClick={() => setScrollLock(!scrollLock)}>
+              {scrollLock ? "Resume Scroll" : "Stop Scroll"}
+            </button>
+          </span>
+        </div>
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div id="score" className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {matchPlayers.map((mp) => (
           <div
             key={mp.id}
@@ -83,6 +100,16 @@ export default function GameBoard({
           </div>
         ))}
       </div>
+      {scrollLock && (
+        <button
+          className="flex mt-2 justify-center items-center text-center w-full"
+          onClick={() => setScrollLock(!scrollLock)}
+        >
+          <span className="p-2 rounded-lg bg-white ">
+            {scrollLock ? "Resume Scroll" : "Stop Scroll"}
+          </span>
+        </button>
+      )}
     </div>
   );
 }
