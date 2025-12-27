@@ -285,7 +285,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-4 py-4">
         {!currentMatch ? (
           <MatchSetup 
             allPlayers={allPlayers}

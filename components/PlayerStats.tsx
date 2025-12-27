@@ -18,16 +18,16 @@ export default function PlayerStats({ matchPlayers }: PlayerStatsProps) {
         Player Stats
       </h2>
 
-      <div className="space-y-3">
+      <div className="grid grid-cols-2 gap-4">
         {sortedPlayers.map((mp, index) => (
           <div
             key={mp.id}
             className="bg-gray-700/50 rounded-2xl p-5 border-2 border-gray-600 hover:shadow-lg transition-all hover:border-blue-500"
           >
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl font-bold text-white shadow-md">
+              {/* <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl font-bold text-white shadow-md">
                 {index + 1}
-              </div>
+              </div> */}
               <div className="flex-1">
                 <h3 className="font-bold text-white text-lg">{mp.player_name}</h3>
                 <div className="text-sm text-gray-400">
@@ -36,11 +36,12 @@ export default function PlayerStats({ matchPlayers }: PlayerStatsProps) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-gray-800 rounded-xl p-3 border border-emerald-500/30">
+            {/* <div className="grid grid-cols-2 gap-3"> */}
+            <div className="">
+              {/* <div className="bg-gray-800 rounded-xl p-3 border border-emerald-500/30">
                 <div className="text-xs text-gray-400 mb-1">TTD</div>
                 <div className="text-2xl font-bold text-emerald-400">{mp.match_wins}</div>
-              </div>
+              </div> */}
               <div className="bg-gray-800 rounded-xl p-3 border border-rose-500/30">
                 <div className="text-xs text-gray-400 mb-1">RT</div>
                 <div className="text-2xl font-bold text-rose-400">{mp.match_losses}</div>
